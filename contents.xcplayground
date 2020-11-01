@@ -3,5 +3,6 @@
     <pages>
         <page name='The Basics '/>
         <page name='Basic Operators'/>
+        <page name='String and Characters '/>
     </pages>
 </playground>
