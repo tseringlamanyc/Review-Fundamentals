@@ -138,9 +138,55 @@ let sum = onlyGrades.reduce(0,+) // +,-,*, /
 print(sum)
 
 // sort in place
-onlyGrades.sort() // modifies current array
+onlyGrades.sort() // modifies current array (ascending by default)
 print(onlyGrades) // sort in place
 
 // sort(by: )
-let sortedGrades = onlyGrades.sorted {}
+let sortedGrades = onlyGrades.sorted { $0 > $1} // desending (big to small)
+// ascending { $0 < $1} (small to big)
+print(sortedGrades)
 
+// reverse
+var someNum = [1,2,3,4,5]
+print(someNum.reverse()) // reverse in place
+
+// reversed() -> returns a new collection
+let newReverse: [Int] = someNum.reversed()
+print(newReverse)
+
+// shuffle
+(someNum.shuffle()) // shuffle in place
+print(someNum)
+
+// shuffled()
+let shuffledElements = someNum.shuffled() // returns new collection
+print(shuffledElements)
+
+// swap at
+var arrangedNum = [1,2,3,4,5]
+arrangedNum.swapAt(0, 1)
+print(arrangedNum)
+
+// partition(by: )
+var randomNum = [3,6,8,90,11,23]
+let pivotIndex = randomNum.partition {$0 > 20}
+print(randomNum) // partician in place ,, greater than 20 is to the right
+print(pivotIndex)
+
+let valLessthan20 = randomNum[..<pivotIndex]
+let valMorethan20 = randomNum[pivotIndex...]
+
+print(valMorethan20)
+print(valLessthan20)
+
+//MARK:- SPLITING AND JOINING AN ARRAY
+
+// split()
+let str = "NA is the worst region"
+let strArr = str.split(separator: " ") // split everytime there is a space
+print(strArr)
+
+// joined()
+let stringArr = ["Bob", "John", "Salley"]
+let newStr = stringArr.joined(separator: ", ") // join elements with seperator 
+print(newStr)
