@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 //MARK:- ARRAY - collection of elements (homo, hetero)
 var peopleNames = [String]()
@@ -40,7 +40,107 @@ print(first ?? false)
 // last
 
 // randomElement
-let randomValue = [1,3,4,5,6,7].randomElement()  // optional 
-print(randomValue)
+let randomValue = [1,3,4,5,6,7].randomElement()  // optional
+print(randomValue!)
 
+// using subscript syntax to change a range of values
+var contacts = ["Bob", "Adam", "Tsering", "Faker"]
+contacts[1...3] = ["William", "BBK"]  // changed value from index 1...3 (override)
+print(contacts)
+
+//MARK:- COMPARING ARRAYS
+[1, 2, 3] != [2, 3]
+//[2, 3] == [1, 2]  // false
+
+//MARK:- ADDING ELEMENTS
+let combine = [1,2,3] + [1,2,3]
+print(combine)
+
+// append
+contacts.append("Ann")   // adds to the end
+print(contacts)
+
+contacts.append(contentsOf: ["Zion", "Lebron"])  // adds to the end
+print(contacts)
+
+// insert
+contacts.insert("Kobe", at: 1)
+print(contacts)
+
+//MARK:- REMOVING ELEMENTS
+contacts.remove(at: contacts.count - 1)
+contacts.removeLast() // crashes if the array is empty
+
+// removeFirst, popLast(safer bc it removes an optional), removeAll, dropFirst, dropLast
+
+var cities = ["nyc", "ktm"]
+let citiesDropped = cities.dropFirst(5)  // dropLast removes from the back
+print(citiesDropped)
+
+//MARK:- ITERATING OVER AN ARRAY
+cities = ["nyc", "ktm", "LA", "BK"]
+for city in cities {
+    print(city)
+}
+
+// accesing Index from an array
+for (index, city) in cities.enumerated() {
+    if city == "ktm" {
+        print("city is \"ktm\" found at index: \(index)")
+    }
+}
+
+//MARK:- FINDING ELEMENTS
+cities.contains("nyc")
+
+// firstIndex(of: )  - returns optional
+if let index = cities.firstIndex(of: "ktm") {
+    print("found city at index: \(index)")
+} else {
+    print("not found")
+}
+
+// lastIndex(of :) - same like first index
+
+// min - optional
+let ages = [1,100,4,7]
+ages.min()
+
+// max - optional
+ages.max()
+
+//MARK:- SELECTING ELEMENTS
+let prefixAges = ages.prefix(3)
+print(prefixAges) // returns the first 3 elements , doesnt remove
+
+// suffix
+let suffixAges = ages.suffix(2)
+print(suffixAges)
+
+//MARK:- TRANSFORMING AN ARRAY
+// map
+let numbers = [1,2,3,4,5]
+let numSquared = numbers.map {$0 * $0}
+print(numSquared)
+
+// flatmap
+let matrix = [[1,2], [3,4,5], [6,7,8,9]]
+let flattenedArr = matrix.flatMap {$0}
+print(flattenedArr)
+
+// compactMap
+var grades = [nil, 79, 99, nil, 0]
+var onlyGrades = grades.compactMap {$0}
+print(onlyGrades)
+
+// reduce
+let sum = onlyGrades.reduce(0,+) // +,-,*, /
+print(sum)
+
+// sort in place
+onlyGrades.sort() // modifies current array
+print(onlyGrades) // sort in place
+
+// sort(by: )
+let sortedGrades = onlyGrades.sorted {}
 
