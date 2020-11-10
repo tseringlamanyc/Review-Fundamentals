@@ -190,3 +190,8 @@ print(strArr)
 let stringArr = ["Bob", "John", "Salley"]
 let newStr = stringArr.joined(separator: ", ") // join elements with seperator 
 print(newStr)
+
+
+var testString = "apple"
+testString.removeLast()
+print(testString)

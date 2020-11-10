@@ -5,5 +5,6 @@
         <page name='Basic Operators'/>
         <page name='String and Characters '/>
         <page name='Arrays'/>
+        <page name='DIctionary '/>
     </pages>
 </playground>
