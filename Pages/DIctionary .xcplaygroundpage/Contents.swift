@@ -174,4 +174,47 @@ people.forEach { print("\($0.name) is \($0.age)") }
 let sorted = personDict.sorted {$0.value > $1.value} // descending
 print(sorted)
 
-// compactmap - returns non nil values 
+// compactmap - returns non nil values
+
+
+//class Node {
+//    var value: Int
+//    var next: Node?
+//
+//    init(_ value: Int) {
+//        self.value = value
+//    }
+//}
+//
+//func printNode(_ node: Node?) {
+//    var node = node
+//    while let currentNode = node {
+//        print(currentNode.value)
+//        node = currentNode.next
+//    }
+//}
+//
+//
+//let nodeOne = Node(1)
+//let nodeTwo = Node(2)
+//let nodeThree = Node(3)
+//
+//nodeOne.next = nodeTwo
+//nodeTwo.next = nodeThree
+//
+//func reverseList(_ node: Node?) -> Node? {
+//    var currentNode = node
+//    var previous: Node?
+//    var next: Node?
+//
+//    while currentNode != nil {
+//        next = currentNode?.next
+//        currentNode?.next = previous
+//        previous = currentNode
+//        currentNode = next
+//    }
+//
+//    return previous
+//}
+//
+//printNode(reverseList(nodeOne))
