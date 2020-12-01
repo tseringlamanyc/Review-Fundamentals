@@ -9,5 +9,6 @@
         <page name='Sets'/>
         <page name='Optionals'/>
         <page name='Tuples'/>
+        <page name='Control Flow'/>
     </pages>
 </playground>
