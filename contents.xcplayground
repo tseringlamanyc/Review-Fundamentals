@@ -8,5 +8,6 @@
         <page name='DIctionary '/>
         <page name='Sets'/>
         <page name='Optionals'/>
+        <page name='Tuples'/>
     </pages>
 </playground>
