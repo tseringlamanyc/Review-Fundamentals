@@ -155,3 +155,91 @@ unique1.isDisjoint(with: unique2)  // no elements in common between two sets
 //MARK:- COMMON FUNCTIONS
 
 // filter, map, min , max   etc.....
+
+
+//MARK:- EXERCISE
+let numbers1 = [1,1,2,4,4,4,6,6,7,8]
+var numbersWithNoDuplicates = [Int]()
+var set: Set<Int> = []
+
+for num in numbers1 {
+    if !set.contains(num) {
+        numbersWithNoDuplicates.append(num)
+        set.insert(num)
+    }
+}
+
+print(numbersWithNoDuplicates)
+
+print(Set(numbers1).sorted {$0 < $1})
+
+let scores2 = [1, 77, 83, 32, 77, 77, 83, 32, 99]
+var scoresThatAppearOnce = [Int]()
+var setques2: Set<Int> = []
+var seenBefore = 0
+
+for score in scores2 {
+    if !setques2.contains(score) && seenBefore != score {
+        scoresThatAppearOnce.append(score)
+        setques2.insert(score)
+    } else if setques2.contains(score) {
+        scoresThatAppearOnce.removeLast()
+        setques2.remove(score)
+    }
+    
+    seenBefore = score
+}
+
+print(setques2)
+print(scoresThatAppearOnce)
+
+//var visited: Set<Int> = []
+//
+//var freqDict = [Int: Int]()
+//scores2.forEach { freqDict[$0, default: 0] += 1 }
+//
+//for score in scores2 {
+//  if freqDict[score] == 1 {
+//    scoresThatAppearOnce.append(score)
+//  }
+//}
+
+let arrOne = [1,2,3,4,5]
+let arrTwo = [3,4,5,6,7]
+
+var arrThree: [Int] = []
+
+arrThree = Set(arrOne).union(Set(arrTwo)).sorted { $0 < $1}
+print(arrThree)
+
+let arrFour = [1,2,3,4,5]
+let arrFive = [3,4,5,6,7]
+
+var arrSix: [Int] = []
+
+arrSix = Set(arrFour).intersection(Set(arrFive)).sorted()
+print(arrSix)
+
+let numsOne = [2, 4, 5, 6, 8, 10, 12]
+let numsTwo = [1, 2, 3, 4, 5, 6]
+let numsThree = [5, 6, 7, 8, 9, 10, 11, 12]
+let numsFour = [1, 3, 4, 5, 6, 7, 9]
+
+var allNumsWithNoDuplicates: [Int] = []
+
+allNumsWithNoDuplicates = Array(Set(numsOne).union(Set(numsTwo)).union(Set(numsThree)).union(Set(numsFour)))
+
+print(allNumsWithNoDuplicates.sorted())
+
+func isPanagram(sentence: String) -> Bool {
+    let alphabets = Set("abcdefghijklmnopqrstuvwxyz")
+    
+    var newSentence = ""
+    
+    newSentence += sentence.lowercased().filter { $0.isLetter}
+
+    return Set(newSentence).count == alphabets.count
+}
+
+isPanagram(sentence: "We promptly judged antique ivory buckles for the next prize")
+isPanagram(sentence: "hello")

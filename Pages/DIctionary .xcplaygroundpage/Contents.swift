@@ -174,47 +174,118 @@ people.forEach { print("\($0.name) is \($0.age)") }
 let sorted = personDict.sorted {$0.value > $1.value} // descending
 print(sorted)
 
-// compactmap - returns non nil values
+//MARK:- EXERCISE
 
+var applesDict: [String: Int] = ["Adam": 3,
+                                 "Beth": 5,
+                                 "Cal": 3,
+                                 "Dan": 5,
+                                 "Eve": 4]
 
-//class Node {
-//    var value: Int
-//    var next: Node?
-//
-//    init(_ value: Int) {
-//        self.value = value
-//    }
-//}
-//
-//func printNode(_ node: Node?) {
-//    var node = node
-//    while let currentNode = node {
-//        print(currentNode.value)
-//        node = currentNode.next
-//    }
-//}
-//
-//
-//let nodeOne = Node(1)
-//let nodeTwo = Node(2)
-//let nodeThree = Node(3)
-//
-//nodeOne.next = nodeTwo
-//nodeTwo.next = nodeThree
-//
-//func reverseList(_ node: Node?) -> Node? {
-//    var currentNode = node
-//    var previous: Node?
-//    var next: Node?
-//
-//    while currentNode != nil {
-//        next = currentNode?.next
-//        currentNode?.next = previous
-//        previous = currentNode
-//        currentNode = next
-//    }
-//
-//    return previous
-//}
-//
-//printNode(reverseList(nodeOne))
+let eveAppleCount = 4
+
+applesDict["Eve"] == eveAppleCount
+applesDict["Adam"] = 4
+
+print(applesDict)
+
+8 == (applesDict["Dan"] ?? 0) + (applesDict["Cal"] ?? 0)
+
+//applesDict.forEach { applesDict[$0.key] = 0 }
+
+for (key, _) in applesDict {
+    applesDict[key] = 0
+}
+
+print(applesDict)
+
+var citiesDict1: [String: String] = ["Afghanistan": "Kabul",
+                                    "Russia": "Moscow",
+                                    "Iceland": "Reykjavik"]
+
+"Moscow" == citiesDict1["Russia"]
+citiesDict1["Jamaica"] = "Kingston"
+
+print(citiesDict1)
+
+var peopleWithScores: [[String: String]] = [
+    [
+        "firstName": "Calvin",
+        "lastName": "Newton",
+        "score": "13"
+    ],
+    [
+        "firstName": "Garry",
+        "lastName": "Mckenzie",
+        "score": "23"
+    ],
+    [
+        "firstName": "Leah",
+        "lastName": "Rivera",
+        "score": "10"
+    ],
+    [
+        "firstName": "Sonja",
+        "lastName": "Moreno",
+        "score": "3"
+    ],
+    [
+        "firstName": "Noel",
+        "lastName": "Bowen",
+        "score": "16"
+    ]
+]
+
+var highestScore = 0
+var highScoreName = ""
+
+for dict in peopleWithScores {
+    if let scoreString = dict["score"] , let scoreInt = Int(scoreString) , let fullName = dict["firstName"] {
+        if scoreInt > highestScore {
+            highestScore = scoreInt
+            highScoreName = fullName
+        }
+    }
+}
+
+print(highScoreName)
+
+var cubeDict = [Int: Int]()
+
+for num in 1...20 {
+    cubeDict[num] = num * num * num
+}
+
+print(cubeDict)
+print(cubeDict.count)
+
+let myString = "We're flooding people with information. We need to feed it through a processor. A human must turn information into intelligence or knowledge. We've tended to forget that no computer will ever ask a new question."
+
+var frequencyDict = [Character: Int]()
+var mostFrequentChar: Character = "?"
+
+for char in myString.lowercased() {
+   
+    if char.isWhitespace || char.isPunctuation {
+        continue
+    }
+    
+    if let count = frequencyDict[char] {
+        frequencyDict[char] = count + 1
+    } else {
+        frequencyDict[char] = 1
+    }
+}
+
+print(frequencyDict)
+
+var highestFreq = 0
+
+for (key, value) in frequencyDict {
+    if value > highestFreq {
+        highestFreq = value
+        mostFrequentChar = key
+    }
+}
+
+print(mostFrequentChar)
