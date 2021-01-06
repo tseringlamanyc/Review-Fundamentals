@@ -59,3 +59,13 @@ if let validNumber = convertInput {
 
 let validNumber = convertInput ?? -1
 print(validNumber)
+
+
+// MARK: - EXERCISES
+
+var numOfSecInAYear = 0
+
+numOfSecInAYear = 365 * (24 * (60 * 60))
+
+123 % 10
+50 / 7

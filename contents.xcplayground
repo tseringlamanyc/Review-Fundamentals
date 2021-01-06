@@ -10,5 +10,6 @@
         <page name='Optionals'/>
         <page name='Tuples'/>
         <page name='Control Flow'/>
+        <page name='Closures '/>
     </pages>
 </playground>
