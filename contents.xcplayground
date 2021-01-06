@@ -11,5 +11,6 @@
         <page name='Tuples'/>
         <page name='Control Flow'/>
         <page name='Closures '/>
+        <page name='Function'/>
     </pages>
 </playground>
