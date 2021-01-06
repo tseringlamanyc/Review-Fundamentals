@@ -88,7 +88,7 @@ func getCoffee(sugar: Int = 1) {
 getCoffee() // will use a default argument
 getCoffee(sugar: 3)
 
-// variadic parameters
+// variadic parameters (can add any amount of the parameters)
 func sum(_ values: Int...) {
     let result = values.reduce(0, +)
     print("The sum of values is \(result)")
@@ -110,4 +110,43 @@ change(name: &personName)
 
 print(personName)
 
+//MARK:- EXERCISE
 
+func secondSmallest(of numbers: [Int]) -> Int {
+  guard var smallest = numbers.first else { return 0 }
+  var secondSmallest = Int.max
+    
+  for num in numbers {
+    if num < smallest {
+      secondSmallest = smallest
+      smallest = num
+    }
+    else if num < secondSmallest && num != smallest {
+      secondSmallest = num
+    }
+  }
+  return secondSmallest
+    
+}
+
+
+func fizzBuzz(n: Int) -> String {
+    
+    var arr = [String]()
+    
+    for num in 1...n {
+        if num % 15 == 0 {
+            arr.append("Fizz Buzz")
+        } else if num % 3 == 0 {
+            arr.append("Fizz")
+        } else if num % 5 == 0 {
+            arr.append("Buzz")
+        } else {
+            arr.append(num.description)
+        }
+    }
+    
+    return arr.description
+}
+
+fizzBuzz(n: 15)
