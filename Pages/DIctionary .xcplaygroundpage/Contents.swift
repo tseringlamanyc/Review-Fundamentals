@@ -270,11 +270,13 @@ for char in myString.lowercased() {
         continue
     }
     
-    if let count = frequencyDict[char] {
-        frequencyDict[char] = count + 1
-    } else {
-        frequencyDict[char] = 1
-    }
+//    if let count = frequencyDict[char] {
+//        frequencyDict[char] = count + 1
+//    } else {
+//        frequencyDict[char] = 1
+//    }
+    
+    frequencyDict[char] = (frequencyDict[char] ?? 0) + 1
 }
 
 print(frequencyDict)

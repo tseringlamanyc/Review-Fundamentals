@@ -4,6 +4,13 @@ import UIKit
 var peopleNames = [String]()
 var phoneNum = [Int]()
 
+var hello = "Hello"
+hello.split(separator: ",")
+
+for char in hello {
+    print(char)
+}
+
 //MARK:- ARR WITH A DEFAULT VALUE
 var newArray = Array(repeating: 0, count: 5)
 print(newArray)
