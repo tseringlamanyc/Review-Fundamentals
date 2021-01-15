@@ -301,7 +301,7 @@ struct Hangman {
         var targetArr = Array(targetWord)
         let setChar = Set(guessedLetters)
         
-        for (_, char) in targetArr.enumerated() {
+        for char in targetArr {
             if setChar.contains(char) {
                 if let firstIndex = targetArr.firstIndex(of: char) {
                     targetArr.remove(at: firstIndex)
@@ -311,23 +311,54 @@ struct Hangman {
         return targetArr.isEmpty
     }
     
-//    func printDisplayVersionOfWord(target: String, guessedLetters: Character) -> String {
-//
-//        var targetArr = [target]
-//        var missingLetters = ""
-//
-//        for (index, char) in targetArr.enumerated() {
-//            if Character(char) == guessedLetters {
-//                targetArr.remove(at: index)
-//            }
-//        }
-//
-//        return missingLetters
-//    }
+    func printDisplayVersionOfWord() -> String {
+        
+        let targetArr = Array(targetWord)
+        var missingLetters = ""
+        let setChar = Set(guessedLetters)
+
+        for char in targetArr {
+            if setChar.contains(char) {
+                missingLetters.append(char)
+            } else {
+                missingLetters += "_"
+            }
+        }
+
+        return missingLetters
+    }
+    
+    mutating func guess(_ guessedLetter: Character) {
+        
+        if !targetWord.contains(guessedLetter) && !guessedLetters.contains(guessedLetter) {
+            numberOfIncorrectGuess += 1
+        }
+        
+        guessedLetters.append(guessedLetter)
+        
+    }
     
 }
 
+var thestring = ""
+thestring.append("a")
+thestring.append("b")
+thestring
+
 var model = Hangman()
+
 model.targetWord = "hello" // ["h,"e","l","l",o"]
-model.guessedLetters = ["h", "e", "l", "o"]
+
+model.guess("h")
+model.guess("a")
+model.guess("l")
+model.guess("o")
+model.guess("e")
+
+print(model.guessedLetters)
+
+model.printDisplayVersionOfWord()
+
+model.numberOfIncorrectGuess
+
 model.playerWon()
