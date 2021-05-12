@@ -14,5 +14,7 @@
         <page name='Function'/>
         <page name='Enumerations'/>
         <page name='Structs'/>
+        <page name='Closures-2'/>
+        <page name='CompletionHandlers'/>
     </pages>
 </playground>
